@@ -1,0 +1,31 @@
+#about {
+    padding: 20px 40px;
+    margin-top: 100px;
+}
+
+.container-about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aliceblue;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.content {
+    padding: 30px;
+    max-width: 60%;
+}
+
+.image-about img {
+    width: 100%;
+    max-width: 370px;
+    height: auto;
+    border-radius: 15px;
+}
