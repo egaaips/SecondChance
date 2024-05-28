@@ -802,6 +802,23 @@ h2:after {
 }
 
 /*--------------------------------------------------------------
+# Halaman Donasi
+--------------------------------------------------------------*/
+#donate h2 {
+    width: fit-content;
+    /* display: flex; */
+    margin-bottom: 40px;
+}
+
+#donate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 #footer {

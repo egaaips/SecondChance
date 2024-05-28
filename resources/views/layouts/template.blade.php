@@ -42,8 +42,8 @@
                     <li><a class="active" href="{{ url('/') }}">Beranda</a></li>
                     <li><a href="#">Lokasi</a></li>
                     <li><a href="{{ url('/blog') }}">Blog</a></li>
-                    <li><a href="{{ url('/about') }}">Tentang</a></li>
-                    <li><a href="#" class="btn-rounded-full bg-green">Donasi</a></li>
+                    <li><a href="{{ url('/tentang') }}">Tentang</a></li>
+                    <li><a href="{{ url('/donasi')}}" class="btn-rounded-full bg-green">Donasi</a></li>
                 </ul>
             </div>
         </nav>
