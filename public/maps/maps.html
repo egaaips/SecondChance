@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple Locations with Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        #map {
+            height: 400px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([-6.200000, 106.816666], 10);
+
+        // Load and display tile layer on the map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Locations array
+        var locations = [
+            { lat: -6.200000, lng: 106.816666, title: "Jakarta" },
+            { lat: -6.914744, lng: 107.609810, title: "Bandung" },
+            { lat: -7.250445, lng: 112.768845, title: "Surabaya" },
+            // Add more locations as needed
+        ];
+
+        // Loop through the locations and place a marker for each
+        locations.forEach(function(location) {
+            var marker = L.marker([location.lat, location.lng]).addTo(map);
+            marker.bindPopup("<b>" + location.title + "</b>");
+        });
+    </script>
+</body>
+</html>

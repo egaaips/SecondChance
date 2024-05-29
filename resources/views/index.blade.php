@@ -123,6 +123,27 @@
     </section>
     <!-- End Fitur Section -->
 
+    <!-- Location Section -->
+    <section id="lokasi">
+        <h2>Lokasi Kami</h2>
+        <div class="maps">
+            <iframe 
+            src="{{ asset('maps/maps.html') }}" width="100%" height="450" frameborder="0" style="border:0;"  allowfullscreen="" aria-hidden="false" tabindex="0">
+            </iframe>
+        </div>
+    </section>
+    <!-- End Location Section -->
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta-section">
+        <div class="cta-content">
+            <h2>Bergabung dengan Kami</h2>
+            <p>Bersama kita bisa membuat perubahan. Mari bergabung dan dukung gerakan kami untuk menciptakan lingkungan yang lebih baik.</p>
+            <a href="#" class="btn-cta">Pelajari Lebih Lanjut</a>
+        </div>
+    </section>
+    <!-- CTA Section End -->
+
     <!-- Blog Section -->
     <section id="blog">
         <h2>Artikel Terbaru</h2>
@@ -187,4 +208,6 @@
         <a href="#" class="btn-rounded-full read-more">ARTIKEL LAINNYA</a>
     </section>
     <!-- Blog Section End-->
+
+    
 @endsection
