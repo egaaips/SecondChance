@@ -4,60 +4,132 @@
     {{ asset('css/style.css') }}
 @endsection
 @section('main')
-<div class="hero-slider">
+    <section class="hero-slider">
+        <div class="slider">
+            <div class="list">
+                <div class="item">
+                    <img src="assets/img/hero1.png" alt="">
+                    <div class="content-slider">
+                        <div class="title">GIVE YOUR UNWORN<br>RENEW HOPE!</div>
+                        <div class="description">
+                            Give your unworn clothes a new purpose! Donate them today to
+                            support sustainability and renew hope for those in need. Your
+                            contribution can make a world of difference.
+                        </div>
+                        <div class="button">
+                            <a href="{{ url('/donasi') }}" class="btn-rounded-full bg-green">DONASI SEKARANG</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="assets/img/produk-katalog/16.png" alt="">
+                    <div class="content-slider">
+                        <div class="title">GIVE YOUR UNWORN<br>RENEW HOPE!</div>
+                        <div class="description">
+                            Give your unworn clothes a new purpose! Donate them today to
+                            support sustainability and renew hope for those in need. Your
+                            contribution can make a world of difference.
+                        </div>
+                        <div class="button">
+                            <a href="{{ url('/donasi') }}" class="btn-rounded-full bg-green">DONASI SEKARANG</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="assets/img/produk-katalog/17.png" alt="">
+                    <div class="content-slider">
+                        <div class="title">GIVE YOUR UNWORN<br>RENEW HOPE!</div>
+                        <div class="description">
+                            Give your unworn clothes a new purpose! Donate them today to
+                            support sustainability and renew hope for those in need. Your
+                            contribution can make a world of difference.
+                        </div>
+                        <div class="button">
+                            <a href="{{ url('/donasi') }}" class="btn-rounded-full bg-green">DONASI SEKARANG</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="assets/img/produk-katalog/18.png" alt="">
+                    <div class="content-slider">
+                        <div class="title">GIVE YOUR UNWORN<br>RENEW HOPE!</div>
+                        <div class="description">
+                            Give your unworn clothes a new purpose! Donate them today to
+                            support sustainability and renew hope for those in need. Your
+                            contribution can make a world of difference.
+                        </div>
+                        <div class="button">
+                            <a href="{{ url('/donasi') }}" class="btn-rounded-full bg-green">DONASI SEKARANG</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" onclick="prevSlide()">&#10094;</button>
+            <button class="carousel-control-next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </section>
+    {{-- <div class="hero-slider">
         <!-- Swiper -->
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <img src="assets/img/produk-katalog/15.png" alt="New Product">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="assets/img/produk-katalog/15.png" alt="New Product">
+                     <button class="donasi-button">Donasi</button>
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/produk-katalog/16.png" alt="New Product">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/produk-katalog/17.png" alt="New Product">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/produk-katalog/18.png" alt="New Product">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/produk-katalog/19.png" alt="New Product">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/produk-katalog/20.png" alt="New Product">
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
         </div>
-        <div class="swiper-slide">
-            <img src="assets/img/produk-katalog/16.png" alt="New Product">
-        </div>
-        <div class="swiper-slide">
-            <img src="assets/img/produk-katalog/17.png" alt="New Product">
-        </div>
-        <div class="swiper-slide">
-            <img src="assets/img/produk-katalog/18.png" alt="New Product">
-        </div>
-        <div class="swiper-slide">
-            <img src="assets/img/produk-katalog/19.png" alt="New Product">
-        </div>
-        <div class="swiper-slide">
-            <img src="assets/img/produk-katalog/20.png" alt="New Product">
-        </div>
-        </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-    </div>
-</div>
+    </div> --}}
 
     <!-- ======= About Section ======= -->
     <section id="about">
         <h2>Tentang Kami</h2>
         <div class="container-about">
-            <div class="about">
-                <div class="content">
-                    <h3>Who We Are</h3>
-                    <h3>Expedita voluptas omnis cupiditate totam eveniet nobis sint iste. Dolores est repellat corrupti
-                        reprehenderit.</h2>
-                    <p>
-                        Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor
-                        consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et est
-                        corrupti.
-                    </p>
-                    <div class="btn-container">
-                        <a href="#" class="btn-about bg-green">
-                            <span>Pelajari Lebih Lanjut</span>
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
             <div class="image-about">
                 <img src="assets/img/mikir.png" class="img-fluid" alt="About Image">
+            </div>
+            <div class="about">
+                <div class="content">
+                    <div class="wrapper-text">
+
+                        <h3 class="text-title">What is Second Chance?</h3>
+                        <p class="lead">
+                            Second Chance is a platform that allows you to share your gently used clothes, which are then
+                            reprocessed and given to those in need. In this way, we can reduce textile waste and give unused
+                            clothes a new lease of life.
+                        </p>
+                    </div>
+                    <div class="wrapper-text">
+
+                        <h3 class="text-title">How to Contribute to Second Chance?</h3>
+                        <p class="lead">
+                            You can contribute by donating your used clothes to our local drop points, which will then be
+                            reprocessed and given to those in need. In this way, we can reduce textile waste and give unused
+                            clothes a new lease of life.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -69,11 +141,9 @@
         <div class="fitur-container">
 
             <header class="section-header">
-                <h2>Fitur Kami</h2>
+                <h2 style="top: -40px">Fitur Kami</h2>
             </header>
-
             <div class="fitur-row">
-
                 <div>
                     <div class="fitur-box">
                         <div class="fitur-icon">
@@ -127,8 +197,8 @@
     <section id="lokasi">
         <h2>Lokasi Kami</h2>
         <div class="maps">
-            <iframe 
-            src="{{ asset('maps/maps.html') }}" width="100%" height="450" frameborder="0" style="border:0;"  allowfullscreen="" aria-hidden="false" tabindex="0">
+            <iframe src="{{ asset('maps/maps.html') }}" width="100%" height="450" frameborder="0" style="border:0;"
+                allowfullscreen="" aria-hidden="false" tabindex="0">
             </iframe>
         </div>
     </section>
@@ -138,7 +208,9 @@
     <section id="cta" class="cta-section">
         <div class="cta-content">
             <h2>Bergabung dengan Kami</h2>
-            <p>Bersama kita bisa membuat perubahan. Mari bergabung dan dukung gerakan kami untuk menciptakan lingkungan yang lebih baik.</p>
+            <p>Bersama kita bisa membuat perubahan. Mari bergabung dan dukung gerakan kami untuk menciptakan lingkungan
+                yang
+                lebih baik.</p>
             <a href="#" class="btn-cta">Pelajari Lebih Lanjut</a>
         </div>
     </section>
@@ -208,6 +280,4 @@
         <a href="#" class="btn-rounded-full read-more">ARTIKEL LAINNYA</a>
     </section>
     <!-- Blog Section End-->
-
-    
 @endsection
