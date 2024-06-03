@@ -816,6 +816,32 @@ h2:after {
     align-items: center;
     justify-content: center;
 }
+
+.term-condition {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 60px 50px;
+}
+
+.card-tnc {
+    display: flex;
+    align-items: center;
+    flex: 0 0 calc(50% - 1rem); /* 50% lebar minus margin untuk spasi antar elemen */
+    margin: 0.5rem; /* spasi antar elemen */
+    box-sizing: border-box; /* untuk memastikan padding dan border disertakan dalam lebar/tinggi elemen */
+    align-items: center;
+    gap: 20px;
+    padding: 0 40px;
+}
+
+.card-tnc img {
+    width: 150px;
+}
+
+.desc {
+    text-align: justify;
+}
+
 /*--------------------------------------------------------------
 # Lokasi
 --------------------------------------------------------------*/
