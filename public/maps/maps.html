@@ -21,11 +21,11 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         // Initialize the map
-        var map = L.map('map').setView([-6.200000, 106.816666], 10);
+        var map = L.map('map', { scrollWheelZoom: false }).setView([-6.200000, 106.816666], 10);
 
         // Load and display tile layer on the map
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
+            maxZoom: 19
         }).addTo(map);
 
         // Locations array
@@ -33,14 +33,24 @@
             { lat: -6.200000, lng: 106.816666, title: "Jakarta" },
             { lat: -6.914744, lng: 107.609810, title: "Bandung" },
             { lat: -7.250445, lng: 112.768845, title: "Surabaya" },
+            { lat: -6.235556, lng: 107.138333, title: "Kabupaten Bekasi" },
+            { lat: -6.966667, lng: 110.416667, title: "Kota Semarang" }
             // Add more locations as needed
         ];
+
+        // Array to hold all the coordinates
+        var latlngs = [];
 
         // Loop through the locations and place a marker for each
         locations.forEach(function(location) {
             var marker = L.marker([location.lat, location.lng]).addTo(map);
             marker.bindPopup("<b>" + location.title + "</b>");
+            latlngs.push([location.lat, location.lng]);
         });
+
+        // Adjust the map view to fit all the markers
+        var bounds = L.latLngBounds(latlngs);
+        map.fitBounds(bounds);
     </script>
 </body>
 </html>

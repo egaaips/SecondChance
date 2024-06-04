@@ -903,10 +903,6 @@ html {
     }
 }
 
-/*--------------------------------------------------------------
-# Halaman About 
---------------------------------------------------------------*/
-
 
 /*--------------------------------------------------------------
 # Fitur Kami
@@ -1043,6 +1039,161 @@ html {
 
 .desc {
     text-align: justify;
+}
+
+#benefit {
+    padding: 60px 20px;
+    background: #dcfce7;
+    width: 100%;
+}
+
+.benefit-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.benefit-header {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.section-header h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    font-size: 18px;
+    color: #666;
+}
+
+.benefit-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.benefit-col {
+    flex: 1;
+    min-width: 300px;
+}
+
+.img-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.benefit-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    height: fit-content;
+    margin: auto;
+}
+
+.benefit-item {
+    display: flex;
+    justify-content: center;
+    width: 280px;
+    height: 85px;
+}
+
+.benefit-box {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+}
+
+.benefit-box i {
+    font-size: 24px;
+    color: green;
+    margin-right: 15px;
+}
+
+.benefit-box h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Formulir Donasi */
+#donation-form {
+    padding: 60px 20px;
+    background: #fff;
+}
+
+.form-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.formulir-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.formulir-header h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group > button {
+    margin-top: 40px;
+}
+
+.form-group button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 35px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background: #218838;
 }
 
 /*--------------------------------------------------------------

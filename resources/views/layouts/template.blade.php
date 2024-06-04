@@ -16,7 +16,7 @@
 
 <body>
     <header class="navbar-container">
-        <nav class="nav-list">
+        <nav id="navbar" class="nav-list">
             <div class="logo">
                 <a href="#">
                     <img src="assets/img/Logo-SecondChance.svg" alt="Logo SecondChance">
@@ -39,11 +39,10 @@
                     </svg>
                 </div>
                 <ul>
-                    <li><a class="active" href="{{ url('/') }}">Beranda</a></li>
-                    <li><a href="#">Lokasi</a></li>
-                    <li><a href="{{ url('/blog') }}">Blog</a></li>
-                    <li><a href="{{ url('/tentang') }}">Tentang</a></li>
-                    {{-- <li><a href="{{ asset('about/about.html') }}">Tentang</a></li> --}}
+                    <li><a class="nav-link home" href="{{ url('/') }}">Beranda</a></li>
+                    <li><a class="nav-link" href="{{ url('/#lokasi') }}">Lokasi</a></li>
+                    <li><a class="nav-link" href="{{ url('/blog') }}">Blog</a></li>
+                    <li><a class="nav-link" href="{{ url('/tentang') }}">Tentang</a></li>
                     <li><a href="{{ url('/donasi') }}" class="btn-rounded-full bg-green">Donasi</a></li>
                 </ul>
             </div>
