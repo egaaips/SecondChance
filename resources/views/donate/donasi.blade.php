@@ -1,5 +1,9 @@
 @extends('layouts.template')
 
+@section('title')
+    | Donasi
+@endsection
+
 @section('main')
     <section id="donate">
         <h2>Syarat dan Ketentuan Donasi</h2>

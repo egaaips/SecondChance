@@ -620,20 +620,22 @@ img {
         grid-column: span 3;
     }
 
-    .card:nth-child(2) .info,
-    .card:nth-child(3) .info {
-        clip-path: circle(0.9rem at 13.35rem 2.28rem);
+     .card:nth-child(1) .info, .card:nth-child(4) .info {
+        clip-path: circle(0.9rem at 13.3rem 2.28rem);
     }
 
-    .card:nth-child(4) .info,
-    .card:nth-child(5) .info {
-        clip-path: circle(0.9rem at 13.25rem 2.28rem);
+    .card:nth-child(2) .info{
+        clip-path: circle(0.9rem at 13.12rem 2.28rem);
     }
 
+    .card:nth-child(3) .info{
+        clip-path: circle(0.9rem at 13.32rem 2.28rem);
+    }
+
+    .card:nth-child(1) .info:hover,
     .card:nth-child(2) .info:hover,
     .card:nth-child(3) .info:hover,
-    .card:nth-child(4) .info:hover,
-    .card:nth-child(5) .info:hover {
+    .card:nth-child(4) .info:hover{
         clip-path: circle(75%);
     }
 

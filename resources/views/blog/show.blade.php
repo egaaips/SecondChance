@@ -9,73 +9,60 @@
     <section class="breadcrumbs">
         <div class="container">
   
-          <ol>
-            <li><a href="{{ url('/') }}">Beranda</a></li>
-            <li>Blog</li>
-          </ol>
-          <h3>Artikel</h3>
+            <ol>
+                <li><a href="{{ url('/') }}">Beranda</a></li>
+                <li><a href="{{ url('/blog') }}">Artikel</a></li>
+                <li>Detail</a></li>
+            </ol>
+            @if ($blog)
+            <h3>{{ $blog->title }}</h3>
+            @else
+            <p>Judul Berita tidak ditemukan.</p>
+            @endif
+        </div>
   
         </div>
       </section><!-- End Breadcrumbs -->
   
-      <!-- ======= Blog Section ======= -->
+      <!-- ======= Blog Single Section ======= -->
       <section id="blog" class="blog">
-        <div class="container">
+        <div class="container" data-aos="fade-up">
   
           <div class="row">
   
             <div class="col-lg-8 entries">
-            @foreach ($blogs as $blog)    
-            <article class="entry">
-
-              <div class="entry-img">
-                <img src="{{ Storage::url($blog->image) }}" alt="" class="img-fluid">
-              </div>
-
-              <h3 class="entry-title">
-                <a href="{{ route('blog.show', $blog->id) }}">{{ $blog->title }}</a>
-              </h3>
-
-              <div class="entry-meta">
-                <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i>{{ $blog->author }}</li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i><time datetime="2020-01-01">{{ $blog->created_at->format('d F Y') }}</time></li>
-                </ul>
-              </div>
-
-              <div class="entry-content">
-                <p>
-                    {!! \Illuminate\Support\Str::limit(strip_tags($blog->content), 200) !!}
-                </p>
-                <div class="more-btn">
-                  <a href="{{ route('blog.show', $blog->id) }}">Read More</a>
-                </div>
-              </div>
-
-            </article><!-- End blog entry -->
-            @endforeach
   
-            <div class="blog-pagination">
-                <ul class="justify-content-center">
-                    @if ($blogs->onFirstPage())
-                        <li class="disabled"><a>&laquo;</a></li>
-                    @else
-                        <li><a href="{{ $blogs->previousPageUrl() }}">&laquo;</a></li>
-                    @endif
-                
-                    @foreach ($blogs->getUrlRange(1, $blogs->lastPage()) as $page => $url)
-                        <li class="{{ $page == $blogs->currentPage() ? 'active' : '' }}">
-                            <a href="{{ $url }}">{{ $page }}</a>
-                        </li>
-                    @endforeach
-                
-                    @if ($blogs->hasMorePages())
-                        <li><a href="{{ $blogs->nextPageUrl() }}">&raquo;</a></li>
-                    @else
-                        <li class="disabled"><a>&raquo;</a></li>
-                    @endif
-                </ul>
-            </div>
+              <article class="entry entry-single">
+  
+                <div class="entry-img">
+                  <img src="{{ Storage::url($blog->image) }}" alt="" class="img-fluid">
+                </div>
+  
+                <h3 class="entry-title">
+                  {{ $blog->title }}
+                </h3>
+  
+                <div class="entry-meta">
+                  <ul>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i>{{ $blog->author }}</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i><time datetime="2020-01-01">{{ $blog->created_at->format('d F Y') }}</time></a></li>
+                  </ul>
+                </div>
+  
+                <div class="entry-content">
+                  <p>
+                    {!! $blog->content !!}
+                  </p>  
+                </div>
+  
+                <div class="entry-footer">
+                  <i class="bi bi-folder"></i>
+                  <ul class="cats">
+                    <li><a href="{{ route('blog.showByCategory', ['category' => $blog->category]) }}">{{ $blog->category }}</a></li>
+                  </ul>
+                </div>
+  
+              </article><!-- End blog entry -->
   
             </div><!-- End blog entries list -->
   
@@ -94,7 +81,7 @@
                 <h3 class="sidebar-title">Kategori</h3>
                 <div class="sidebar-item categories">
                   <ul>
-                    @php
+                        @php
                         // Mendapatkan kategori unik dari beritas
                         $categories = $blog->pluck('category')->unique();
                         @endphp
@@ -129,5 +116,5 @@
           </div>
   
         </div>
-      </section><!-- End Blog Section -->
+      </section><!-- End Blog Single Section -->
 @endsection

@@ -4,13 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SecondChance</title>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <title>SecondChance @yield('title')</title>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="shortcut icon" href="assets\img\Logo-SecondChance.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets\img\Logo-SecondChance.svg') }}" type="image/x-icon">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ asset('/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
@@ -18,8 +23,8 @@
     <header class="navbar-container">
         <nav id="navbar" class="nav-list">
             <div class="logo">
-                <a href="#">
-                    <img src="assets/img/Logo-SecondChance.svg" alt="Logo SecondChance">
+                <a href="{{ url('/') }}">
+                    <img src="{{ asset('/assets/img/Logo-SecondChance.svg') }}" alt="Logo SecondChance">
                 </a>
             </div>
 
@@ -41,7 +46,11 @@
                 <ul>
                     <li><a class="nav-link home" href="{{ url('/') }}">Beranda</a></li>
                     <li><a class="nav-link" href="{{ url('/#lokasi') }}">Lokasi</a></li>
-                    <li><a class="nav-link" href="{{ url('/blog') }}">Blog</a></li>
+                    <li class="dropdown"><a class="nav-link" href="{{ url('/blog/artikel') }}"><span>Blog</span><i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                          <li><a class="nav-link" href="{{ url('/blog/artikel') }}">Artikel</a></li>
+                          <li><a class="nav-link" href="{{ url('/blog/informasi') }}">Informasi</a></li>
+                        </ul>
                     <li><a class="nav-link" href="{{ url('/tentang') }}">Tentang</a></li>
                     <li><a href="{{ url('/donasi') }}" class="btn-rounded-full bg-green">Donasi</a></li>
                 </ul>
@@ -56,21 +65,6 @@
     <!-- ======= Footer ======= -->
     <footer id="footer">
 
-        {{-- <div class="footer-newsletter">
-            <div class="container">
-                <div class="row">
-                    <div>
-                        <h4>Join Our Newsletter</h4>
-                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                        <form action="" method="post">
-                            <input type="email" name="email" placeholder="Enter your email"><input type="submit"
-                                value="Subscribe">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-
         <div class="footer-top">
             <div class="container">
                 <div class="footer-row">
@@ -81,12 +75,6 @@
                             SecondChance menyediakan cara yang nyaman dan berdampak untuk merapikan ruang Anda sambil
                             mendukung masa depan yang lebih berkelanjutan. Dengan menghubungkan pendonor dan penerima
                             donasi.<br><br>
-                            {{-- SecondChance menyediakan cara yang nyaman dan <br>
-                            berdampak untuk merapikan ruang Anda sambil <br>
-                            mendukung masa depan yang lebih berkelanjutan. <br>
-                            Dengan menghubungkan pendonor dan penerima donasi.<br><br> --}}
-                            {{-- <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br> --}}
                         </p>
                     </div>
 
@@ -150,7 +138,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('assets/js/main.js')}} "></script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
-@section('css_link')
-    {{ asset('css/about.css') }}
+@section('title')
+    | Tentang Kami
 @endsection
 
 @section('main')
