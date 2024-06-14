@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\InfoController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DonasiController;
 
 // Route::get('/', function () {
 //     return view('index');
@@ -29,6 +30,10 @@ Route::get('/blog/informasi', [InfoController::class, 'information'])->name('inf
 Route::get('/blog/informasi/detail/{id}', [InfoController::class, 'show'])->name('info.show');
 Route::get('/blog/informasi/label/{label}', [InfoController::class, 'showByLabel'])->name('info.showByLabel');
 
+// HALAMAN DONASI
 Route::get('/donasi', function () {
     return view('donate.donasi');
 });
+// Route::post('/donate/donasi', 'DonasiController@store')->name('donasi.store');
+
+Route::post('/simpan-donasi', [DonasiController::class, 'store'])->name('simpan-donasi');

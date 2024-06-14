@@ -159,7 +159,8 @@ h2:after {
     }
 }
 
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+}
 
 @media (min-width: 992px) {
     nav.nav-list {
@@ -223,11 +224,11 @@ h2:after {
     position: relative;
 }
 
-.nav-list .dropdown>span {
+.nav-list .dropdown > span {
     cursor: pointer;
 }
 
-.nav-list .dropdown>ul {
+.nav-list .dropdown > ul {
     display: none;
     position: absolute;
     left: 0;
@@ -240,12 +241,12 @@ h2:after {
     margin: 0;
 }
 
-.nav-list .dropdown>ul>li {
+.nav-list .dropdown > ul > li {
     margin: 0;
     width: 100%;
 }
 
-.nav-list .dropdown>ul>li>a {
+.nav-list .dropdown > ul > li > a {
     color: black;
     text-decoration: none;
     padding: 10px 20px;
@@ -253,24 +254,23 @@ h2:after {
     white-space: nowrap;
 }
 
-.nav-list .dropdown>ul>li>a:hover {
+.nav-list .dropdown > ul > li > a:hover {
     background-color: #f1f1f1;
 }
 
 /* Show dropdown menu on hover (desktop) */
 @media (min-width: 992px) {
-    .nav-list .dropdown:hover>ul {
+    .nav-list .dropdown:hover > ul {
         display: block;
     }
 }
 
 /* Dropdown menu for mobile */
 @media (max-width: 991px) {
-    .nav-list .dropdown.open>ul {
+    .nav-list .dropdown.open > ul {
         display: block;
     }
 }
-
 
 /*--------------------------------------------------------------
 # Coursel
@@ -537,7 +537,7 @@ html {
         font-size: 1.2em;
         margin-bottom: 0.8em;
         flex-grow: 1;
-        color: #2ba429;
+        color: #000;
     }
 
     .card-blog:hover .post-title {
@@ -665,11 +665,11 @@ html {
     text-decoration: underline;
 }
 
-.breadcrumbs ol li+li {
+.breadcrumbs ol li + li {
     padding-left: 10px;
 }
 
-.breadcrumbs ol li+li::before {
+.breadcrumbs ol li + li::before {
     display: inline-block;
     padding-right: 10px;
     color: #8894f6;
@@ -689,7 +689,7 @@ html {
     background-color: #35cc33;
     padding: 5px 20;
     border-radius: 30px;
-    color: white;  
+    color: white;
 }
 
 .filter-row .filter-label p {
@@ -872,7 +872,7 @@ html {
     margin: 0;
 }
 
-.blog .entry .entry-meta ul li+li {
+.blog .entry .entry-meta ul li + li {
     padding-left: 20px;
 }
 
@@ -989,7 +989,7 @@ html {
     display: inline-block;
 }
 
-.blog .entry .entry-footer li+li::before {
+.blog .entry .entry-footer li + li::before {
     padding-right: 6px;
     color: #6c757d;
     content: ",";
@@ -1067,7 +1067,7 @@ html {
     position: relative;
 }
 
-.blog .sidebar .search-form form input[type=text] {
+.blog .sidebar .search-form form input[type="text"] {
     border: 0;
     padding: 4px;
     border-radius: 4px;
@@ -1105,7 +1105,7 @@ html {
     padding: 0;
 }
 
-.blog .sidebar .categories ul li+li {
+.blog .sidebar .categories ul li + li {
     padding-top: 10px;
 }
 
@@ -1124,7 +1124,7 @@ html {
     font-size: 14px;
 }
 
-.blog .sidebar .recent-posts .post-item+.post-item {
+.blog .sidebar .recent-posts .post-item + .post-item {
     margin-top: 15px;
 }
 
@@ -1191,13 +1191,11 @@ html {
     font-size: 14px;
 }
 
-
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
 #about {
     min-width: 100%;
-
 }
 
 @media (min-width: 320px) {
@@ -1280,7 +1278,6 @@ html {
         border-radius: 15px;
     }
 }
-
 
 /*--------------------------------------------------------------
 # Fitur Kami
@@ -1437,7 +1434,6 @@ html {
     flex-direction: column;
 }
 
-
 /* .section-header h2 {
     font-size: 32px;
     margin-bottom: 10px;
@@ -1553,7 +1549,7 @@ html {
     border-radius: 4px;
 }
 
-.form-group>button {
+.form-group > button {
     margin-top: 40px;
 }
 
@@ -1598,7 +1594,7 @@ html {
     position: relative;
     /* padding: 20px 0; */
     /* padding: 60px 20px; */
-    background: url(/assets/img/blog/blog-1.jpg) no-repeat center center fixed;
+    background: url(/assets/img/coursel1.jpg) no-repeat center center fixed;
     background-size: cover;
     color: white;
     text-align: center;
@@ -1704,7 +1700,7 @@ html {
 
 #footer .footer-top {
     padding: 40px 0 0;
-    background: #fff;
+    background: #f6fef6;
 }
 
 #footer .footer-top .footer-contact {

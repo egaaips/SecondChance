@@ -46,10 +46,11 @@
                 <ul>
                     <li><a class="nav-link home" href="{{ url('/') }}">Beranda</a></li>
                     <li><a class="nav-link" href="{{ url('/#lokasi') }}">Lokasi</a></li>
-                    <li class="dropdown"><a class="nav-link" href="{{ url('/blog/artikel') }}"><span>Blog</span><i class="bi bi-chevron-down"></i></a>
+                    <li class="dropdown"><a class="nav-link" href="{{ url('/blog/artikel') }}"><span>Blog</span><i
+                                class="bi bi-chevron-down"></i></a>
                         <ul>
-                          <li><a class="nav-link" href="{{ url('/blog/artikel') }}">Artikel</a></li>
-                          <li><a class="nav-link" href="{{ url('/blog/informasi') }}">Informasi</a></li>
+                            <li><a class="nav-link" href="{{ url('/blog/artikel') }}">Artikel</a></li>
+                            <li><a class="nav-link" href="{{ url('/blog/informasi') }}">Informasi</a></li>
                         </ul>
                     <li><a class="nav-link" href="{{ url('/tentang') }}">Tentang</a></li>
                     <li><a href="{{ url('/donasi') }}" class="btn-rounded-full bg-green">Donasi</a></li>
@@ -64,11 +65,9 @@
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
-
         <div class="footer-top">
             <div class="container">
                 <div class="footer-row">
-
                     <div class="footer-contact">
                         <h3>Second<span style="color: orange;">Chance</span></h3>
                         <p>
@@ -79,24 +78,20 @@
                     </div>
 
                     <div class="footer-links">
-                        <h4>Useful Links</h4>
+                        <h4>Tentang</h4>
                         <ul>
-                            <li><a href="#">Beranda</a></li>
-                            <li><a href="#">Lokasi</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Tentang Kami</a></li>
-                            <li><a href="#">Donasi</a></li>
+                            {{-- <li><a href="#">Beranda</a></li> --}}
+                            <li><a href="{{ url('/tentang') }}">Tentang Kami</a></li>
+                            <li><a href="{{ url('/tentang#team') }}">Tim Kami</a></li>
+                            <li><a href="">FAQ</a></li>
+                            {{-- <li><a href="#">Donasi</a></li> --}}
                         </ul>
                     </div>
                     <div class="footer-links">
-                        <h4>Our Teams</h4>
+                        <h4>Blog</h4>
                         <ul>
-                            <li><a href="#">Anggota 1</a></li>
-                            <li><a href="#">Anggota 1</a></li>
-                            <li><a href="#">Anggota 1</a></li>
-                            <li><a href="#">Anggota 1</a></li>
-                            <li><a href="#">Anggota 1</a></li>
-                            <li><a href="#">Anggota 1</a></li>
+                            <li><a href="{{ url('/blog/artikel') }}">Artikel</a></li>
+                            <li><a href="{{ url('/blog/informasi') }}">Informasi</a></li>
                         </ul>
                     </div>
 
@@ -138,7 +133,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="{{ asset('assets/js/main.js')}} "></script>
+    <script src="{{ asset('assets/js/main.js') }} "></script>
 </body>
 
 </html>

@@ -11,7 +11,7 @@
   
             <ol>
                 <li><a href="{{ url('/') }}">Beranda</a></li>
-                <li><a href="{{ url('/blog') }}">Artikel</a></li>
+                <li><a href="{{ url('/blog/artikel') }}">Artikel</a></li>
                 <li>Detail</a></li>
             </ol>
             @if ($blog)
@@ -41,7 +41,7 @@
                 <h3 class="entry-title">
                   {{ $blog->title }}
                 </h3>
-  
+
                 <div class="entry-meta">
                   <ul>
                     <li class="d-flex align-items-center"><i class="bi bi-person"></i>{{ $blog->author }}</a></li>
