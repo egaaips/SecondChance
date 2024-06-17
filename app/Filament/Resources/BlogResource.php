@@ -23,7 +23,14 @@ class BlogResource extends Resource
 {
     protected static ?string $model = Blog::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $label = 'Article'; // Nama tunggal
+    protected static ?string $pluralLabel = 'Articles'; // Nama jamak
+
+    protected static ?string $navigationLabel = 'Articles';
+    protected static ?string $navigationGroup = 'Blog';
+
+
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
     public static function form(Form $form): Form
     {

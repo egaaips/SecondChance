@@ -5,25 +5,18 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\DonasiController;
 
-// Route::get('/', function () {
-//     return view('index');
-// });
+
 Route::get('/', [BlogController::class, 'index'])->name('beranda');
 
 Route::get('/tentang', function () {
     return view('tentang.about');
 });
-// Route::get('/artikel', function () {
-//     return view('blog.index');
-// });
-// Route::get('/detail', function () {
-//     return view('blog.detail');
-// });
 
 // HALAMAN BLOG
 Route::get('/blog/artikel', [BlogController::class, 'blog'])->name('blog.blog');
 Route::get('/blog/artikel/detail/{id}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/blog/artikel/kategori/{category}', [BlogController::class, 'showByCategory'])->name('blog.showByCategory');
+Route::get('/blog/artikel/search', [BlogController::class, 'blog'])->name('blog.search');
 
 // HALAMAN INFORMASI
 Route::get('/blog/informasi', [InfoController::class, 'information'])->name('info.informasi');
@@ -34,6 +27,5 @@ Route::get('/blog/informasi/label/{label}', [InfoController::class, 'showByLabel
 Route::get('/donasi', function () {
     return view('donate.donasi');
 });
-// Route::post('/donate/donasi', 'DonasiController@store')->name('donasi.store');
 
 Route::post('/simpan-donasi', [DonasiController::class, 'store'])->name('simpan-donasi');

@@ -7,18 +7,33 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    
+
     public function index()
     {
         $recentPost = Blog::latest()->take(3)->get();
-        return view('index', compact('recentPost'));
+        $recent = Blog::latest()->first();
+        return view('index', compact('recentPost', 'recent'));
     }
-    public function blog()
+    public function blog(Request $request)
     {
-        $blogs = Blog::orderBy('id', 'desc')->paginate(3);
+        $query = $request->input('query');
+
+        if ($query) {
+            $blogs = Blog::where('title', 'LIKE', "%{$query}%")
+                ->orderBy('id', 'desc')
+                ->paginate(3);
+        } else {
+            $blogs = Blog::orderBy('id', 'desc')->paginate(3);
+        }
+
+        if ($blogs->isEmpty()) {
+            $blogs = collect(); // Return an empty collection
+        }
+
+        $blog = Blog::all();
         $recentPosts = Blog::latest()->take(4)->get();
 
-        return view('blog.blog', compact('blogs', 'recentPosts'));
+        return view('blog.blog', compact('blogs', 'recentPosts', 'query', 'blog'));
     }
 
     public function show($id)
@@ -30,7 +45,7 @@ class BlogController extends Controller
 
     public function showByCategory($category)
     {
-        $blog =Blog::all();
+        $blog = Blog::all();
         $blogs = Blog::where('category', $category)->orderBy('id', 'desc')->paginate(3);
         $recentPosts = Blog::latest()->take(4)->get();
 

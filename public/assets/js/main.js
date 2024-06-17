@@ -1,9 +1,9 @@
 $(document).ready(function () {
   $(".hamburger").click(function () {
-      $(".top-menu").css("right", "0");
+    $(".top-menu").css("right", "0");
   });
   $(".close").click(function () {
-      $(".top-menu").css("right", "-100vw");
+    $(".top-menu").css("right", "-100vw");
   });
 });
 
@@ -34,30 +34,32 @@ document.addEventListener('DOMContentLoaded', () => {
     homeLink.classList.remove('active');
   }
 
-  
+
   // Toggle dropdown menu on mobile
   const dropdowns = document.querySelectorAll('.nav-list .dropdown > span');
   dropdowns.forEach(dropdown => {
-      dropdown.addEventListener('click', () => {
-          dropdown.parentElement.classList.toggle('open');
-      });
+    dropdown.addEventListener('click', () => {
+      dropdown.parentElement.classList.toggle('open');
+    });
   });
+
+  AOS.init();
 });
 
-// =================== filter label active ==========================
+// =================== filter label active in information page ==========================
 document.addEventListener('DOMContentLoaded', () => {
   const filterLabels = document.querySelectorAll('.filter-label');
   const currentPage = window.location.href;
 
   filterLabels.forEach(label => {
-      if (currentPage === label.getAttribute('href')) {
-          label.classList.add('active');
-      }
+    if (currentPage === label.getAttribute('href')) {
+      label.classList.add('active');
+    }
 
-      label.addEventListener('click', () => {
-          filterLabels.forEach(l => l.classList.remove('active'));
-          label.classList.add('active');
-      });
+    label.addEventListener('click', () => {
+      filterLabels.forEach(l => l.classList.remove('active'));
+      label.classList.add('active');
+    });
   });
 });
 
@@ -69,16 +71,16 @@ let currentIndex = 0;
 function showSlide(index) {
   const slides = document.querySelectorAll(".item");
   if (index >= slides.length) {
-      currentIndex = 0;
+    currentIndex = 0;
   } else if (index < 0) {
-      currentIndex = slides.length - 1;
+    currentIndex = slides.length - 1;
   } else {
-      currentIndex = index;
+    currentIndex = index;
   }
 
   const newTransform = -currentIndex * 100 + "%";
   document.querySelector(
-      ".list"
+    ".list"
   ).style.transform = `translateX(${newTransform})`;
 }
 
@@ -94,59 +96,105 @@ document.addEventListener("DOMContentLoaded", () => {
   showSlide(currentIndex);
 });
 
-/* ============= Vision & Mission Accordion ============= */
-const accordionGoalsItem = document.querySelectorAll(".goals_item");
-
-accordionGoalsItem.forEach((item) => {
-  const accordionHeader = item.querySelector(".goals_header");
-
-  accordionHeader.addEventListener("click", () => {
-      const openItem = document.querySelector(".accordion-open");
-
-      toggleItem(item);
-
-      if (openItem && openItem !== item) {
-          toggleItem(openItem);
-      }
-  });
-});
-
-const toggleItem = (item) => {
-  const accordionContent = item.querySelector(".goals_content");
-
-  if (item.classList.contains("accordion-open")) {
-      accordionContent.removeAttribute("style");
-      item.classList.remove("accordion-open");
-  } else {
-      accordionContent.style.height = accordionContent.scrollHeight + "px";
-      item.classList.add("accordion-open");
-  }
-};
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Function to add AOS (Animate On Scroll) effects
-  function initAOS() {
-      const elements = document.querySelectorAll('[data-aos]');
-      elements.forEach(element => {
-          const delay = element.getAttribute('data-aos-delay');
-          element.style.transitionDelay = `${delay}ms`;
-          element.classList.add('aos-animate');
-      });
+  const form = document.getElementById('donationForm');
+  const inputs = form.querySelectorAll('input, textarea, select');
+  const submitButton = form.querySelector('.btn-submit');
+  const warning = document.getElementById('warning');
+  const phoneInput = document.getElementById('phone');
+  const weightInput = document.getElementById('weight');
+  const shippingSelect = document.getElementById('shipping');
+  const successModal = document.getElementById('successModal');
+  const closeModalElements = document.querySelectorAll('.tutup, .btn-close');
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+  function validateForm() {
+    let isValid = true;
+    inputs.forEach(input => {
+      if (!input.value) {
+        isValid = false;
+      }
+    });
+
+    const phoneValue = phoneInput.value;
+    const phonePattern = /^\d+$/; // Regular expression untuk hanya angka
+
+    if (!phoneValue.startsWith('08') || phoneValue.length < 11 || !phonePattern.test(phoneValue)) {
+      isValid = false;
+      error.style.display = phoneValue.length === 0 ? 'none' : 'block';
+    } else {
+      error.style.display = 'none';
+    }
+
+    if (shippingSelect.value === 'Pick Up' && weightInput.value < 10) {
+      isValid = false;
+      warning.style.display = 'block';
+    } else { 
+      warning.style.display = 'none';
+    }
+
+
+    submitButton.disabled = !isValid;
+    submitButton.style.cursor = isValid ? 'pointer' : 'default';
+    submitButton.style.backgroundColor = isValid ? '#35cc33' : 'gray';
   }
 
-  // Simulate the AOS library by adding animation on scroll
-  window.addEventListener('scroll', () => {
-      const elements = document.querySelectorAll('[data-aos]');
-      const scrollTop = window.scrollY + window.innerHeight;
-
-      elements.forEach(element => {
-          if (element.offsetTop < scrollTop) {
-              element.classList.add('aos-animate');
-          }
-      });
+  inputs.forEach(input => {
+    input.addEventListener('input', validateForm);
   });
 
-  // Initialize AOS effects
-  initAOS();
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    if (!submitButton.disabled) {
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+          'X-CSRF-Token': csrfToken
+        }
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log(data); // Debug: log the response data
+          if (data.message === 'Data donasi berhasil ditambahkan!') {
+            form.reset();
+            validateForm(); // Re-validate form after reset
+            successModal.style.display = 'block';
+          } else {
+            alert('Terjadi kesalahan saat mengirim donasi');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error); // Debug: log any errors
+        });
+    }
+  });
+
+  closeModalElements.forEach(element => {
+    element.addEventListener('click', function () {
+      successModal.style.display = 'none';
+    });
+  });
+
+  window.addEventListener('click', function (event) {
+    if (event.target === successModal) {
+      successModal.style.display = 'none';
+    }
+  });
+
+  validateForm(); // Initial validation check
 });
+
+
 

@@ -91,11 +91,11 @@
 
                         <h3 class="sidebar-title">Cari</h3>
                         <div class="sidebar-item search-form">
-                            <form action="">
-                                <input type="text">
+                            <form action="{{ route('blog.blog') }}">
+                                <input type="text" name="query">
                                 <button type="submit"><i class="bi bi-search"></i></button>
                             </form>
-                        </div><!-- End sidebar search formn-->
+                        </div><!-- End sidebar search form -->
 
                         <h3 class="sidebar-title">Kategori</h3>
                         <div class="sidebar-item categories">

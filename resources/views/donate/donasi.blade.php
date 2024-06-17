@@ -12,8 +12,8 @@
                 <img src="assets/img/donasi/12.png" alt="icon">
                 <div class="desc">
                     <h4>Mengisi Form Donasi</h4>
-                    <p>Wajib mengisi form terlebih dahulu terutama jika metode pengiriman yang dipilih adalah menggunakan
-                        kurir jika tidak maka paket tidak akan diterima.</p>
+                    <p>Wajib mengisi formulir donasi di halaman donasi terlebih dahulu terutama jika metode pengiriman yang
+                        dipilih adalah pick up.</p>
                 </div>
             </div>
             <div class="card-tnc">
@@ -123,6 +123,9 @@
                             <label for="phone">No HP</label>
                             <input type="tel" id="phone" name="nomor_hp" required>
                         </div>
+                        <div id="error" style="color:red; display:none;">
+                            Nomor HP tidak valid
+                        </div>
                         <div class="form-group">
                             <label for="weight">Berat (dalam kg)</label>
                             <input type="number" id="weight" name="berat" min="1" required>
@@ -130,17 +133,31 @@
                         <div class="form-group">
                             <label for="shipping">Pilihan Pengiriman</label>
                             <select id="shipping" name="pilihan_pengiriman" required>
-                                <option>Diantar ke Drop Point</option>
-                                <option>Dikirim Melalui Kurir</option>
+                                <option value="">Pilih Opsi Pengiriman</option>
+                                <option value="Drop Point">Drop Point</option>
+                                <option value="Pick Up">Pick Up</option>
                             </select>
                         </div>
+                        <div id="warning" style="color:red; display:none;">
+                            Berat harus lebih dari atau sama dengan 10 kg
+                            untuk opsi Pick Up.
+                        </div>
                         <div class="form-group">
-                            <button type="submit" class="btn-submit">Kirim</button>
+                            <button type="submit" class="btn-submit" disabled>Kirim</button>
                         </div>
                     </form>
                 </div>
-            </section><!-- End Donation Registration Form Section -->
 
+            </section>
+        </div>
+        <!-- Success Modal -->
+        <div id="successModal" class="modal">
+            <div class="modal-content">
+                <span class="tutup">&times;</span>
+                <h2>Terima Kasih!</h2>
+                <p>Donasi Anda telah berhasil dikirim.</p>
+                <button id="closeModalButton" class="btn-close">Tutup</button>
+            </div>
         </div>
         </div>
     </section>

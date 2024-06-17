@@ -17,10 +17,17 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\DonasiResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\DonasiResource\RelationManagers;
+use Filament\Forms\Components\Section;
+use Filament\Tables\Filters\SelectFilter;
+
+use function Laravel\Prompts\form;
 
 class DonasiResource extends Resource
 {
     protected static ?string $model = Donasi::class;
+
+    protected static ?string $navigationLabel = 'Donations';
+    protected static ?string $navigationGroup = 'Donation';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -28,18 +35,24 @@ class DonasiResource extends Resource
     {
         return $form
             ->schema([
-                Card::make()
+                Section::make()
                     ->schema([
                         TextInput::make('nama')->required(),
                         TextInput::make('alamat')->required(),
                         TextInput::make('nomor_hp')->required(),
                         TextInput::make('berat')->required(),
                         Select::make('pilihan_pengiriman')->options([
-                            'Diantar ke Drop point' => 'Diantar ke Drop point',
-                            'Dikirim melalui kurir' => 'Dikirim melalui kurir',
+                            'Drop Point' => 'Drop Point',
+                            'Pick Up' => 'Pick Up',
                         ])->required(),
-                    ])
-                    ->columns(2),
+                        Select::make('status')->options([
+                            'Pending' => 'Pending',
+                            'Process' => 'Process',
+                            'Pick up' => 'Pick up',
+                            'Completed' => 'Completed',
+                        ])
+
+                    ])->columns(2),
             ]);
     }
 
@@ -51,14 +64,24 @@ class DonasiResource extends Resource
                 TextColumn::make('alamat'),
                 TextColumn::make('nomor_hp'),
                 TextColumn::make('berat'),
-                TextColumn::make('pilihan_pengiriman'),
+                TextColumn::make('pilihan_pengiriman')->label('Pengiriman'),
+                TextColumn::make('created_at')->label('Tanggal')->date()->sortable(),
+                TextColumn::make('status'),
             ])
             ->filters([
-                //
+                SelectFilter::make('status')
+                    ->options([
+                        'Pending' => 'Pending',
+                        'Process' => 'Process',
+                        'Pick up' => 'Pick up',
+                        'Completed' => 'Completed',
+                    ])
+                    ->label('Status')
+
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                // Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
